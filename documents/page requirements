@@ -1,0 +1,14 @@
+login page staff
+login page customer
+
+sign up page for customer
+
+customer order page
+
+staff portal
+	look up inventory
+		by id (input)
+		by warehouse (dropdown)
+	add shipment
+	add new product page
+	remove stock page
