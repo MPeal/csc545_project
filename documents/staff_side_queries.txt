@@ -1,0 +1,33 @@
+**LOOK UP ITEM**
+select * from item where id = ?;
+OR
+select * from item where name like '%?%';
+
+then...
+select * from warehouse where id = ?;
+
+
+**VIEW WAREHOUSE INVENTORY**
+select name, quantity from item JOIN item_count c ON item.id = c.item_id where warehouse_id = 1;
+	NOTE: remember way to display null values as zero?
+
+
+
+**ADD NEW ITEM**
+INSERT INTO item VALUES (name?, price?);
+
+then...referencing the name above....
+item_id = select id from item where name = ^name;
+
+INSERT INTO item_count values (item_id?, warehouse_id, quantity?);
+
+
+
+
+**MANAGE INVENTORY**
+update item_count set quantity = ? where item_id = ?
+
+
+
+**ADJUST ITEM**
+update item set name = ? and price = ? where item_id = ?;
