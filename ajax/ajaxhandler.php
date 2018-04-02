@@ -1,7 +1,15 @@
 <?php
-$action = $_POST['action'];
-$get = $_GET;
+include_once('../classes/DbHandler.php');
 
-echo $get;
-//echo json_encode($action);
+$action = $_POST['action'];
+if(isset($_POST['params'])){
+    $params = $_POST['params'];
+}else{
+    $params = null;
+}
+
+$handler = new DbHandler();
+$result = $handler->callFunction($action, $params);
+
+echo json_encode($result, JSON_UNESCAPED_UNICODE);
 ?>

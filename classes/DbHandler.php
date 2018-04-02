@@ -1,5 +1,4 @@
 <?php
-
 class DbHandler
 {
     private $conn;
@@ -9,10 +8,10 @@ class DbHandler
         $this->conn = $this->getConnection();
     }
 
-    public function callFunction($action)
+    public function callFunction($action, $params = null)
     {
-        $reply = call_user_func($action);
-        return $reply;
+        $trying = $this->$action($params);
+        return $trying;
     }
 
     /**
@@ -26,10 +25,16 @@ class DbHandler
             'csc45mysql');
     }
 
-    public function getCategories()
+    public function getCategories($params = null)
     {
         $sql = "SELECT name FROM category";
         $result = $this->conn->query($sql);
+        $rows = array();
+
+        while($row = $result->fetch_assoc()){
+            array_push($rows, $row['name']);
+        }
+        return $rows;
     }
 }
 
