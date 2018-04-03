@@ -27,12 +27,38 @@ class DbHandler
 
     public function getCategories($params = null)
     {
-        $sql = "SELECT name FROM category";
+        $sql = "SELECT id, name FROM category";
         $result = $this->conn->query($sql);
         $rows = array();
 
         while($row = $result->fetch_assoc()){
-            array_push($rows, $row['name']);
+            array_push($rows, $row);
+        }
+        return $rows;
+    }
+
+    /**
+     * @array $param
+     * includes 'categoryId'
+     */
+    public function getItemsByCategory($params)
+    {
+        $categoryId = $params['categoryId'];
+
+        $sql = "SELECT i.id, i.name, i.price, ic.quantity
+        FROM item i JOIN item_count ic ON i.id = ic.item_id
+        WHERE i.category_id = $categoryId";
+
+        $result = $this->conn->query($sql);
+        $rows = array();
+
+        while($row = $result->fetch_assoc()){
+            $r = array(
+                'name' => $row['name'],
+                'price' => $row['price'],
+                'quantity' => $row['quantity']
+            );
+            array_push($rows, $r);
         }
         return $rows;
     }

@@ -25,6 +25,22 @@
             <option disabled selected>Select a Category</option>
         </select>
     </div>
+    <div id="items-info-container">
+        <div id="items-info-header-row" class="row">
+            <div class="col-md-3">
+                Item Name
+            </div>
+            <div class="col-md-3">
+                Stock
+            </div>
+            <div class="col-md-3">
+                Price
+            </div>
+            <div class="col-md-3">
+                Quantity
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
