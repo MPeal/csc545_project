@@ -54,6 +54,7 @@ class DbHandler
 
         while($row = $result->fetch_assoc()){
             $r = array(
+                'id' => $row['id'],
                 'name' => $row['name'],
                 'price' => $row['price'],
                 'quantity' => $row['quantity']
