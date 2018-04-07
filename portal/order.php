@@ -55,7 +55,10 @@
             <input id="add-items-btn" class="btn" type="button" value="Add Items">
         </div>
         <div class="col-md-3">
-            <input id="checkout-btn" class="btn" type="button" value="Check Out">
+            <a href="cart.php">
+                <input id="checkout-btn" class="btn" type="button" value="Check Out">
+            </a>
+        </div>
         </div>
     </div>
 </div>

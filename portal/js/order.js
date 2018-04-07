@@ -6,8 +6,13 @@ var currentCatTotal = 0;
 
 function bindEvents(){
     $('#category-select').on('change', function(){
-        getItemsByCategory();
-        $('#order-total-box').val(0);
+        getItemsByCategory()
+            .done(function(){
+                setInterval(function(){
+                    bindItemQuantityKeyupEvent();
+                    updateTotal();
+                }, 100);
+        });
     });
 
     $('#add-items-btn').on('click', function(){
@@ -21,7 +26,7 @@ function bindEvents(){
 
 function bindItemQuantityKeyupEvent(){
     $('.item-quantity-textbox').on('keyup', function(e){
-        updateTotal(e);
+        updateTotal();
     });
 }
 
@@ -43,12 +48,39 @@ function updateCart(){
             quantity: $(item).val()
         };
 
-        if(obj.quantity > 0){
-            cart.items.push(obj);
+        var added = false;
+        if(obj.quantity > 0 || isInCart(itemId)){
+            //replace instances of items we may be just updating instead of adding to cart
+            for(var j =0; j < cart.items.length; j++){
+                var it = cart.items[j];
+                if(it.itemId === itemId){
+                    cart.items[j] = obj;
+                    added = true;
+                }
+            }
+            if(!added){
+                cart.items.push(obj);
+            }
         }
     }
     window.localStorage['cart'] = JSON.stringify(cart);
     updateCartTotal();
+}
+
+function isInCart(itemId){
+    if(window.localStorage['cart']){
+        var cart = JSON.parse(window.localStorage['cart']);
+
+        for(var i =0; i < cart.items.length; i++){
+            var item = cart.items[i];
+            if(item.itemId === itemId){
+                return true;
+            }
+        }
+        return false;
+    }else{
+        return false;
+    }
 }
 
 function updateCartTotal() {
@@ -142,6 +174,7 @@ function loadCategories() {
 }
 
 function getItemsByCategory(){
+    var dfd = new $.Deferred();
     var targetContainer = $('#items-info-container');
     var categoryId = $('#category-select').val();
     var params = {categoryId: categoryId};
@@ -157,25 +190,44 @@ function getItemsByCategory(){
            response = JSON.parse(response);
            var html = "";
            response.forEach(function(row){
-               html += buildItemRow(row);
+               if(isInCart(row.id)){
+                   var quantity = getQuantityInCartByItemId(row.id);
+                   html += buildItemRow(row, quantity);
+               }else{
+                   html += buildItemRow(row);
+               }
            });
 
            $('#items-info-header-row').nextAll().remove();
            targetContainer.append(html);
            $('#order-total-row').show();
            $('#order-bottom-btns-row').show();
-           bindItemQuantityKeyupEvent();
         }
     });
+    dfd.resolve(true);
+    return dfd;
 }
 
-function buildItemRow(row){
+function getQuantityInCartByItemId(itemId){
+    var cart = JSON.parse(window.localStorage['cart']);
+
+    var items = cart.items;
+    for(var i =0; i < items.length; i++){
+        var item = items[i];
+        if(item.itemId === itemId){
+            return item.quantity;
+        }
+    }
+}
+
+function buildItemRow(row, quantity){
+    quantity = quantity || 0;
     var html = "<div class='row' data-itemid="+row.id+">";
     html += "<div class='col-md-3'>"+row.name+"</div>";
     html += "<div class='col-md-3'>"+row.quantity+"</div>";
     html += "<div class='col-md-3 item-price'>"+row.price+"</div>";
     html += "<input type='hidden' class='item-price-hidden' data-itemid="+row.id+" value="+row.price+">";
-    html += "<div class='col-md-3'><input type='text' data-itemname='"+row.name+"' data-itemid="+row.id+" class='item-quantity-textbox' value=0 id='item-quantity-"+row.id+"'></div>";
+    html += "<div class='col-md-3'><input type='text' data-itemname='"+row.name+"' data-itemid="+row.id+" class='item-quantity-textbox' value="+quantity+" id='item-quantity-"+row.id+"'></div>";
     html += "</div>";
 
     return html;
