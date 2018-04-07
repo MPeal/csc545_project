@@ -45,7 +45,7 @@
     <div class="row" id="order-total-row">
         <div class="col-md-2 col-md-offset-9">
                 <span>
-                    Total
+                    Category Subtotal
                 </span>
             <input id="order-total-box" type="text" value="0.00" disabled>
         </div>
