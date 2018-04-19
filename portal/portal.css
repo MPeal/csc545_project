@@ -4,3 +4,11 @@
     width: 70%;
     margin-top: 200px;
 }
+
+
+body {
+    background-color: tomato;
+    background-size: cover;
+    border-bottom: hidden;
+
+}

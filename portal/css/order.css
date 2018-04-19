@@ -5,3 +5,11 @@
 #order-bottom-btns-row{
     display: none;
 }
+
+
+body {
+    background-color: tomato;
+    background-size: cover;
+    border-bottom: hidden;
+
+}

@@ -1,0 +1,61 @@
+#top_row {
+    margin-top: 150px;
+}
+
+#login_form_wrapper {
+    width: 400px;
+    margin: auto;
+    padding: 10px;
+    font-family: 'Calibri';
+    color: white;
+}
+
+#confirm_pword_col{
+    margin-left: -25px;
+}
+.col-md-12 {
+    font-family: 'Calibri';
+    font-weight: bold;
+    margin-top: 1px;
+    color: white;
+}
+
+h3 {
+    font-family: 'Calibri';
+    font-size: 30px;
+    color: white;
+}
+
+h1 {
+    font-family: 'Calibri';
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 1px;
+    color: white;
+}
+
+.login {
+    position: relative;
+    z-index: 2000;
+}
+
+#login_pword, #login_username, #login_button, #registerZip, #registerCity, #registerState, #registerStreet, #registerName {
+    color: black;
+}
+
+
+.signUp {
+    font-family: 'OCR A';
+}
+
+body {
+    background-color: tomato;
+    background-size: cover;
+    border-bottom: hidden;
+
+}
+
+
+
+
+
