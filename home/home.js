@@ -22,7 +22,6 @@ function submit(){
             username: username,
             password: pword
         },
-        dataType: 'json',
         success: function(response){
             if(response['isValid'] == false){
                 updateFeedback(response['feedback'], 'red');
