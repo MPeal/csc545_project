@@ -9,7 +9,7 @@ if(isset($_POST['params'])){
     $params = null;
 }
 
-if($_POST['isMongo'] === true){
+if(isset($_POST['isMongo'])){
     $mongoHandler = new MongoHandler();
     $result = $mongoHandler->callFunction($action, $params);
 }else{

@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+$user = $_SESSION['username'];
 ?>
 
 <html>
@@ -10,13 +11,14 @@
 </head>
 
 <body>
+<input id='user-id-hide' type='hidden' value=<?php echo $user; ?>>
 <div class="container">
     <div class="row">
         <ul class="nav nav-pills">
             <li class="active"><a href="order.php">Order</a></li>
             <li><a href="order_history.php">Order History</a></li>
             <li><a href="cart.php">Cart</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="logout.php">Log Out</a></li>
         </ul>
     </div>
 
@@ -59,8 +61,8 @@
                 <input id="checkout-btn" class="btn" type="button" value="Check Out">
             </a>
         </div>
-        </div>
     </div>
+</div>
 </div>
 </body>
 </html>

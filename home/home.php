@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -20,41 +24,41 @@
 
 
 
-</div>
-        </div>
-        <div id="login_form_wrapper">
-            <div class="row text-center">
-                <form action="loginValidation.php" method="POST">
-                    <div class="row">
-                        <div class="col-md-12">
-                            Username: <input id="login_username" type='text' name='username'>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            Password:   <input id="login_pword" type='password' name='password'>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input id="login_button" class="btn btn-success" type='button' value="Log In" name='submit'>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div id="feedback_display" class="row text-center">
-        </div>
-            <div class="row text-center">
-                <div class="col-md-12" id="signUp">
-                    Need an Account? Register <a href="signup.php">here!</a>
-                </div>
-            </div>
         </div>
     </div>
+    <div id="login_form_wrapper">
+        <div class="row text-center">
+            <form action="loginValidation.php" method="POST">
+                <div class="row">
+                    <div class="col-md-12">
+                        Username: <input id="login_username" type='text' name='username'>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        Password:   <input id="login_pword" type='password' name='password'>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input id="login_button" class="btn btn-success" type='button' value="Log In" name='submit'>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="feedback_display" class="row text-center">
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12" id="signUp">
+            Need an Account? Register <a href="signup.php">here!</a>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 </html>
 

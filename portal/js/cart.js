@@ -1,5 +1,5 @@
 $('#checkout-btn').on('click', function (){
-   placeOrder();
+    placeOrder();
 });
 
 if(window.localStorage['cart']){
@@ -23,16 +23,17 @@ function placeOrder(){
         return;
     }
 
+    var data = {
+        params: {
+            cart: window.localStorage['cart']
+        },
+        action: 'placeOrder',
+        isMongo: true
+    };
     $.ajax({
         url: '../ajax/ajaxhandler.php',
         type: 'POST',
-        data: {
-            params: {
-                cart: window.localStorage['cart']
-            },
-            action: 'placeOrder',
-            isMongo: true
-        },
+        data: data,
         success: function(response){
             console.log(response);
             window.localStorage.removeItem('cart');

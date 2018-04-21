@@ -1,12 +1,9 @@
 <?php
-require '../home/database.php';
-
-
-
+require 'database.php';
 
 session_start();
 if (isset($_SESSION['username'])) {
-	header( 'Location: ../portal/order.php ' );
+    header( 'Location: ../portal/order.php ' );
 }
 
 $user = $_POST["username"];
@@ -33,29 +30,16 @@ if(mysqli_num_rows($res) != 1){
 }
 
 
-
 if(password_verify($pw,$savedPw)) {
     $update = "UPDATE customer SET isLoggedIn=true WHERE username = '$user'";
     $up = mysqli_query($conn, $update);
-    if($up){
-        $data = array(
-            "isValid"=> true,
-            "feedback"=>"Logged in!"
-        );
-        $_SESSION['username'] = $user;
-        $_SESSION['userid'] = $userId;
-        cleanupDBResources($conn,$res);
-        echo json_encode($data);
-        exit;
-    }else{
-        $data = array(
-            "isValid"=> false,
-            "feedback"=>"Something went wrong."
-        );
-        cleanupDBResources($conn,$res);
-        echo json_encode($data);
-        exit;
-    }
+    $data = array(
+        "isValid"=> true,
+        "feedback"=>"Logged in!"
+    );
+    $_SESSION['username'] = $user;
+    $_SESSION['userid'] = $userId;
+    echo json_encode($data);
 }else{
     $data = array(
         "isValid"=> false,
@@ -63,9 +47,8 @@ if(password_verify($pw,$savedPw)) {
     );
     cleanupDBResources($conn,$res);
     echo json_encode($data);
-    exit;
 }
-
+exit;
 
 
 ?>

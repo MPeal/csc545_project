@@ -1,11 +1,15 @@
 <?php
+session_start();
+include_once('DbHandler.php');
 class MongoHandler
 {
     public $conn;
+    public $sqlHandler;
 
     function __construct()
     {
         $this->conn = $this->getMongoConnection();
+        $this->sqlHandler = new DbHandler();
     }
 
     private function getMongoConnection()
@@ -72,6 +76,9 @@ class MongoHandler
         }catch(Exception $e){
             echo $e;
         }
+
+        //process order on sql-side db
+        $this->sqlHandler->processOrder($cart);
 
         return array(
             'success' => $user

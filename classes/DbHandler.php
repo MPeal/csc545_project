@@ -63,6 +63,17 @@ class DbHandler
         }
         return $rows;
     }
+
+    public function processOrder($order)
+    {
+        $items = $order['items'];
+        foreach($items as $item){
+            $id = (int)$item['itemId'];
+            $quantity = (int)$item['quantity'];
+            $sql ="UPDATE item_count SET quantity = (quantity - ".$quantity.") WHERE item_id = ".$id;
+            $this->conn->query($sql);
+        }
+    }
 }
 
 ?>
