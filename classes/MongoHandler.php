@@ -23,4 +23,58 @@ class MongoHandler
         }
         return $conn;
     }
+
+    public function callFunction($action, $params = null)
+    {
+        $trying = $this->$action($params);
+        return $trying;
+    }
+
+    public function getCollection($name)
+    {
+        $output = null;
+        try{
+            $db = $this->conn->csc545mongo;
+            $collections = $db->getCollectionNames();
+            $coll = null;
+            foreach($collections as $c){
+                $coll = $c === $name ? $c : null;
+            }
+
+            if(!is_null($coll)){
+                $output =  $db->selectCollection($c);
+            }else{
+                $db->createCollection($name);
+                $output = $db->selectCollection($name);
+            }
+        }catch(Exception $e){
+            echo $e;
+        }
+        return $output;
+    }
+
+    /**
+     * @param $cart (String)
+     */
+    public function placeOrder($data)
+    {
+        /**
+         * find collection for user
+         * if not one, create it
+         * place order object into collection
+         */
+        $user = $_SESSION['username'];
+        $cart = $data['cart'];
+        $cart = json_decode($cart, JSON_UNESCAPED_UNICODE);
+        try{
+            $collection = $this->getCollection($user);
+            $collection->insert($cart);
+        }catch(Exception $e){
+            echo $e;
+        }
+
+        return array(
+            'success' => $user
+        );
+    }
 }

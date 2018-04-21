@@ -27,7 +27,7 @@ function submit(){
             if(response['isValid'] == false){
                 updateFeedback(response['feedback'], 'red');
             }else{
-                window.location = '../portal/index.php';
+                window.location = '../portal/order.php';
             }
         },
         error: function(response){

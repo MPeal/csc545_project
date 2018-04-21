@@ -47,6 +47,7 @@ if(mysqli_num_rows($res) != 0){
 ( '$value1', '$value2','$value3','$value4','$value5', '$username','$pw')";
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
+        $_SESSION['username'] = $username;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

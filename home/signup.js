@@ -55,7 +55,8 @@ function verifyForm(){
 	}
 }
 
-function updateFeedback(text,color='black'){
+function updateFeedback(text,color){
+	color = color || 'black';
 	$('#feedback_display').text(text);
 	$('#feedback_display').css('color', color);
 }
@@ -104,7 +105,7 @@ function submit(){
 			if(response['isValid'] == false){
 				updateFeedback(response['feedback'], 'red');
 			}else{
-				window.location = '../portal/index.php';
+				window.location = '../portal/order.php';
 			}
 		},
 		error: function(response){
