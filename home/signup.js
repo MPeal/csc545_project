@@ -101,7 +101,6 @@ function submit(){
             fullName: fullName,
 		},
 		success: function(response){
-			console.log(response);
 			if(response['isValid'] == false){
 				updateFeedback(response['feedback'], 'red');
 			}else{

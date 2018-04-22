@@ -92,7 +92,7 @@ function updateCartTotal() {
         var cost = item.price * item.quantity;
         newTotal += cost;
     }
-    cart.total = newTotal;
+    cart.total = parseFloat(newTotal).toFixed(2);
     window.localStorage['cart'] = JSON.stringify(cart);
 }
 
@@ -121,7 +121,7 @@ function createCart() {
         cartTotal += itemTotal;
     }
     cart.items = items;
-    cart.total = cartTotal;
+    cart.total = parseFloat(cartTotal).toFixed(2);
     window.localStorage['cart'] = JSON.stringify(cart);
 }
 
@@ -143,7 +143,7 @@ function updateTotal() {
         }
         currentCatTotal += price * quantity;
     }
-    currentCatTotal = Math.round((currentCatTotal * 100) / 100).toFixed(2);
+    currentCatTotal = parseFloat((currentCatTotal * 100) / 100).toFixed(2);
     $('#order-total-box').val(currentCatTotal);
 }
 
@@ -161,7 +161,6 @@ function loadCategories() {
             action: "getCategories"
         },
         success: function (response) {
-            console.log(response);
             response = JSON.parse(response);
 
             /**

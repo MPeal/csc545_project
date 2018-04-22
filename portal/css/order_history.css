@@ -1,0 +1,9 @@
+body {
+    background-color: tomato;
+    background-size: cover;
+    border-bottom: hidden;
+}
+
+#orders-container{
+    display: none;
+}

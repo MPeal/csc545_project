@@ -33,7 +33,7 @@ session_start();
     </div>
     <div id="cart-items-container">
     </div>
-    <div class="row">
+    <div id="cart-total-row" class="row">
         <div class="col-md-2 col-md-offset-6">
                 <span>
                     Order Total

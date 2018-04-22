@@ -57,6 +57,22 @@ class MongoHandler
         return $output;
     }
 
+    public function getOrders()
+    {
+        $user = $_SESSION['username'];
+        $docs = array();
+        try{
+            $collection = $this->getCollection($user);
+            $result = $collection->find()->sort(array('date' => -1));
+            foreach($result as $order){
+                $docs[] = $order;
+            }
+        }catch(Exception $e){
+            echo $e;
+        }
+        return array('docs' => $docs);
+    }
+
     /**
      * @param $cart (String)
      */
@@ -83,5 +99,18 @@ class MongoHandler
         return array(
             'success' => $user
         );
+    }
+
+    public function getOrder($id)
+    {
+        $user = $_SESSION['username'];
+        $result = null;
+        try{
+            $collection = $this->getCollection($user);
+            $result = $collection->findOne(array("_id" => new MongoId($id)));
+        }catch(Exception $e){
+            echo $e;
+        }
+        return $result;
     }
 }

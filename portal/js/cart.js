@@ -23,9 +23,12 @@ function placeOrder(){
         return;
     }
 
+    var cart = JSON.parse(window.localStorage['cart']);
+    cart.date = new Date().getTime();
+
     var data = {
         params: {
-            cart: window.localStorage['cart']
+            cart: JSON.stringify(cart)
         },
         action: 'placeOrder',
         isMongo: true
@@ -35,9 +38,8 @@ function placeOrder(){
         type: 'POST',
         data: data,
         success: function(response){
-            console.log(response);
             window.localStorage.removeItem('cart');
-            window.location = "http://www.google.com/";
+            window.location = "../portal/order_history.php";
         }
     })
 }
@@ -119,7 +121,14 @@ function buildCartDisplay(){
         html += buildItemRow(item);
     }
     $('#cart-items-container').html(html);
-    $('#order-total-box').val(Math.round((cart.total * 100) / 100).toFixed(2));
+
+    if(items.length > 0){
+        $('#cart-total-row').show();
+    }else{
+        $('#cart-total-row').hide();
+    }
+
+    $('#order-total-box').val(parseFloat((cart.total * 100) / 100).toFixed(2));
     dfd.resolve();
     return dfd;
 }
@@ -135,7 +144,14 @@ function rebuildCartDisplay(){
         html += buildItemRow(item);
     }
     $('#cart-items-container').html(html);
-    $('#order-total-box').val(Math.round((cart.total * 100) / 100).toFixed(2));
+
+    if(items.length > 0){
+        $('#cart-total-row').show();
+    }else{
+        $('#cart-total-row').hide();
+    }
+
+    $('#order-total-box').val(parseFloat((cart.total * 100) / 100).toFixed(2));
     dfd.resolve();
     return dfd;
 }
