@@ -1,4 +1,5 @@
-getOrders();
+//getOrders();
+$('#orders-container').show();
 
 function getOrders(){
     $.ajax({

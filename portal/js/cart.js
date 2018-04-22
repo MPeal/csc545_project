@@ -24,7 +24,8 @@ function placeOrder(){
     }
 
     var cart = JSON.parse(window.localStorage['cart']);
-    cart.date = new Date().getTime();
+    var date = new Date().getTime();
+    cart.date = Math.floor(date/1000);
 
     var data = {
         params: {

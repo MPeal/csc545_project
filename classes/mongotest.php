@@ -10,8 +10,7 @@ $cart = '{"items":[{"itemId":"9","name":"wooden baseball bat","category":"1","pr
 $cart = json_decode($cart, JSON_UNESCAPED_UNICODE);
 try{
     $coll = $db->selectCollection($user);
-    $result = $coll->findOne(array("_id" => new MongoId('5adbc8d5ac5ce07823000029')));
-    var_dump($result);
+    $db->dropCollection($user);
 } catch(Exception $e){
     echo $e;
 }

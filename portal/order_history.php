@@ -1,6 +1,10 @@
 <?php
-session_start();
+//session_start();
+include_once('../classes/MongoHandler.php');
 $user = $_SESSION['username'];
+$mongo = new MongoHandler();
+$orders = $mongo->getOrders();
+$orders = $orders['docs'];
 ?>
 
 <html>
@@ -28,7 +32,24 @@ $user = $_SESSION['username'];
         </div>
     </div>
     <div id="orders-container">
-        You have not made any orders, but you TOTALLY should.
+        <?php if(count($orders) < 1): ?>
+            You have not made any orders, but you TOTALLY should.
+        <?php elseif (count($orders) > 0) : ?>
+        <?php foreach($orders as $order){
+            echo "<div class='row'>";
+            echo "<div class='col-md-4'>";
+            echo "<a href='vieworder.php?id=".$order['_id']->{'$id'}."'>Order #".$order['_id']->{'$id'}."</a>";
+            echo "</div>";
+            echo "<div class='col-md-4'>";
+            echo date("M d, Y", $order['date']);
+            echo "</div>";
+            echo "<div class='col-md-4'>";
+            echo "$".$order['total'];
+            echo "</div>";
+            echo "</div>";
+            }
+        ?>
+        <?php endif; ?>
     </div>
 </div>
 </body>
