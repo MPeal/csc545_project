@@ -1,5 +1,5 @@
 body {
-    background-color: tomato;
+    background-color: white;
     background-size: cover;
     border-bottom: hidden;
 }
@@ -10,4 +10,27 @@ body {
 
 h2 {
     text-align: center;
+}
+
+
+.nav>li>a.active {
+    background-color: black;
+
+}
+
+
+.nav-pills a{
+    color: black;
+
+}
+.nav>li>a:visited {
+
+}
+
+.nav>li>a:hover {
+    background-color: whitesmoke;
+}
+
+#logo_id {
+    padding-top: 40px;
 }

@@ -8,6 +8,7 @@
 
 #order-bottom-btns-row{
     display: none;
+    padding-top: 40px;
 
 }
 
@@ -17,15 +18,17 @@
     padding-top: 50px;
     padding-right: 100px;
 
+
 }
 
 
 #category_div{
     padding-top: 20px;
+    text-align: center;
 }
 
 body {
-    background-color: darkred;
+    background-color: white;
     background-size: cover;
     border-bottom: hidden;
 
@@ -52,16 +55,23 @@ h2 {
     text-align: center;
 }
 
+#logo_id {
+    padding-top: 40px;
+}
+
+
 #checkout-btn {
     position: relative;
-    left: 292px;
+    left: 336px;
+    color: white;
 
 
 }
 
 #add-items-btn {
     position: relative;
-    left: 436px;
+    left: 90px;
+    color: black;
 }
 
 #order_item_div {

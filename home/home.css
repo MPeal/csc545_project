@@ -1,3 +1,7 @@
+#logo_id {
+    padding-top: 40px;
+}
+
 #top_row {
     margin-top: 150px;
 }
@@ -7,7 +11,7 @@
     margin: auto;
     padding: 10px;
     font-family: 'Calibri';
-    color: white;
+    color: black;
 }
 
 #confirm_pword_col{
@@ -17,13 +21,13 @@
     font-family: 'Calibri';
     font-weight: bold;
     margin-top: 1px;
-    color: white;
+    color: black;
 }
 
 h3 {
     font-family: 'Calibri';
     font-size: 30px;
-    color: white;
+    color: black;
 }
 
 h1 {
@@ -31,7 +35,7 @@ h1 {
     font-size: 40px;
     font-weight: bold;
     margin-top: 1px;
-    color: white;
+    color: black;
 }
 
 .login {
@@ -49,7 +53,7 @@ h1 {
 }
 
 body {
-    background-color: darkred;
+    background-color: white;
     background-size: cover;
     border-bottom: hidden;
 

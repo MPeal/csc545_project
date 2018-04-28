@@ -1,11 +1,18 @@
+#logo_id {
+    padding-top: 40px;
+}
+
+
 
 #checkout-btn {
     position: relative;
     left: 35px;
+    color: white;
 }
 
 #add-items-btn {
     position: relative;
+    color: black;
 
 
 }

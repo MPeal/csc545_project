@@ -24,9 +24,9 @@ if ($conn->connect_error) {
 
 <body>
 
-<div class="row">
+<div class="row" id="logo_id">
     <div class="col-md-12 text-center">
-        <img src="../documents/Images/LAD-shipping.png";>
+        <img src="../documents/Images/lad_shipping_logo.png";>
 
 
 
@@ -34,7 +34,7 @@ if ($conn->connect_error) {
 </div>
     
     <div class="container">
-        <div class="row" style="margin-top: 150px;">
+        <div class="row" style="margin-top: 50px;">
             <div class="col-md-12 text-center">
                 <h1>Sign Up</h1>
             </div>

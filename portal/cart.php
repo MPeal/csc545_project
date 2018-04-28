@@ -10,9 +10,9 @@ session_start();
 </head>
 <body>
 
-<div class="row">
+<div class="row" id="logo_id">
     <div class="col-md-12 text-center">
-        <img src="../documents/Images/LAD-shipping.png";>
+        <img src="../documents/Images/lad_shipping_logo.png";>
 
 
 
@@ -57,7 +57,7 @@ session_start();
             </a>
         </div>
         <div class="col-md-3">
-            <input id="checkout-btn" class="btn-danger" type="button" value="Confirm Order">
+            <input id="checkout-btn" class="btn-primary" type="button" value="Confirm Order">
         </div>
     </div>
 </div>

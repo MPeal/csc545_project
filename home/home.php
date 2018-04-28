@@ -18,16 +18,16 @@ session_start();
 
 
 <div class="container">
-    <div class="row">
+    <div class="row" id="logo_id">
         <div class="col-md-12 text-center">
-            <img src="../documents/Images/LAD-shipping.png";>
+            <img src="../documents/Images/lad_shipping_logo.png";>
 
         </div>
     </div>
     <div id="login_form_wrapper">
         <div class="row text-center">
             <form action="loginValidation.php" method="POST">
-                <div class="row">
+                <div class="row" style="margin-top: 50px;">
                     <div class="col-md-12">
                         Username: <input id="login_username" type='text' name='username'>
                     </div>
@@ -41,7 +41,7 @@ session_start();
                 <br>
                 <div class="row">
                     <div class="col-md-12">
-                        <input id="login_button" class="btn btn-success" type='button' value="Log In" name='submit'>
+                        <input id="login_button" class="btn btn-secondary" type='button' value="Log In" name='submit'>
                     </div>
 
                 </div>

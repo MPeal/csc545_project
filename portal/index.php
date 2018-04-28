@@ -15,9 +15,9 @@ session_start();
 
 
 <body>
-<div class="row">
+<div class="row" id="logo_id">
     <div class="col-md-12 text-center">
-        <img src="../documents/Images/LAD-shipping.png";>
+        <img src="../documents/Images/lad_shipping_logo.png";>
 
 
 
