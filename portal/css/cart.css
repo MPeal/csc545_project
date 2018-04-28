@@ -42,14 +42,29 @@ h2 {
     padding-bottom: 1px;
 }
 
-.nav>li>a:hover,.nav>li>a:visited {
-    background-color: #222;
+.nav>li>a.active {
+    background-color: black;
+
+}
+
+
+.nav-pills a{
+    color: black;
+
+}
+.nav>li>a:visited {
+
+}
+
+.nav>li>a:hover {
+    background-color: whitesmoke;
 }
 
 
 #order-bottom-btns-row {
     position: relative;
-    left: 140px;
+    padding-top: 40px;
+
 }
 
 

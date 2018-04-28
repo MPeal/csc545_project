@@ -2,7 +2,7 @@
     display: none;
     padding-bottom: 1px;
     position: relative;
-    left: 140px;
+    left: 40px;
     padding-right: 100px;
 }
 
@@ -13,7 +13,7 @@
 
 #items-info-container {
     position: relative;
-    left: 140px;
+    left: 40px;
     padding-top: 50px;
     padding-right: 100px;
 
@@ -32,7 +32,8 @@ body {
 }
 
 .nav>li>a.active {
-    background-color: white;
+    background-color: black;
+
 }
 
 
@@ -40,9 +41,12 @@ body {
     color: black;
 
 }
+.nav>li>a:visited {
 
-.nav>li>a:hover,.nav>li>a:visited {
-    background-color: #222;
+}
+
+.nav>li>a:hover {
+    background-color: whitesmoke;
 }
 h2 {
     text-align: center;
@@ -50,14 +54,14 @@ h2 {
 
 #checkout-btn {
     position: relative;
-    left: 493px;
+    left: 292px;
 
 
 }
 
 #add-items-btn {
     position: relative;
-    left: 736px;
+    left: 436px;
 }
 
 #order_item_div {
