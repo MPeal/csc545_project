@@ -9,24 +9,33 @@ session_start();
     <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <img src="../documents/Images/LAD-shipping.png";>
+
+
+
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <ul class="nav nav-pills">
-            <li><a href="order.php">Order</a></li>
-            <li><a href="order_history.php">Order History</a></li>
-            <li class="active"><a href="cart.php">Cart</a></li>
-            <li><a href="logout.php">Log Out</a></li>
+            <li><a href="order.php"> <span class="glyphicon glyphicon-tags"></span> Order</a></li>
+            <li><a href="order_history.php"><span class="glyphicon glyphicon-list-alt"></span> Order History</a></li>
+            <li class="active"><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
         </ul>
     </div>
-    <div id="items-info-container">
+    <div id="items-info-container1">
         <div id="items-info-header-row" class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" id = "cart-item-div">
                 Item Name
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" id = "cart-price-div">
                 Price
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" id="cart-quantity-div">
                 Quantity
             </div>
         </div>
@@ -44,11 +53,11 @@ session_start();
     <div class="row" id="order-bottom-btns-row">
         <div class="col-md-3 col-md-offset-3">
             <a href="order.php">
-                <input id="add-items-btn" class="btn" type="button" value="Back to Order">
+                <input id="add-items-btn" class="btn-secondary" type="button" value="Back to Order" >
             </a>
         </div>
         <div class="col-md-3">
-            <input id="checkout-btn" class="btn" type="button" value="Confirm Order">
+            <input id="checkout-btn" class="btn-danger" type="button" value="Confirm Order">
         </div>
     </div>
 </div>

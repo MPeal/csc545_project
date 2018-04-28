@@ -1,14 +1,61 @@
 .container{
-    background: lightgray;
+    background: white;
     border: black 1px solid;
     width: 70%;
-    margin-top: 200px;
+    margin-top: 50px;
+    padding-bottom: 200px;
+
+}
+
+
+.nav-pills {
+    padding-bottom: 1px;
+
+}
+
+.nav>li>a.active {
+    background-color: white;
+}
+
+
+.nav-pills a{
+    color: black;
+
+}
+
+.nav>li>a:hover,.nav>li>a:visited {
+    background-color: #222;
+}
+
+
+li {
+
+
 }
 
 
 body {
-    background-color: tomato;
+    background-color: darkred;
     background-size: cover;
     border-bottom: hidden;
 
+}
+
+
+
+
+
+#add-items-btn {
+    right: 0px;
+
+}
+
+#welcome-row {
+    text-align: center;
+
+}
+
+#info-div {
+    position: relative;
+    bottom: 90px;
 }

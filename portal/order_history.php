@@ -12,17 +12,28 @@ $orders = $orders['docs'];
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="portal.css">
     <link rel="stylesheet" href="css/order_history.css">
+
 </head>
 
+
+
 <body>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <img src="../documents/Images/LAD-shipping.png";>
+
+
+
+    </div>
+</div>
 <input id='user-id-hide' type='hidden' value=<?php echo $user; ?>>
 <div class="container">
     <div class="row">
         <ul class="nav nav-pills">
-            <li><a href="order.php">Order</a></li>
-            <li class="active"><a href="order_history.php">Order History</a></li>
-            <li><a href="cart.php">Cart</a></li>
-            <li><a href="logout.php">Log Out</a></li>
+            <li><a href="order.php"><span class="glyphicon glyphicon-tags"></span> Order</a></li>
+            <li class="active"><a href="order_history.php"><span class="glyphicon glyphicon-list-alt"></span> Order History</a></li>
+            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
         </ul>
     </div>
 

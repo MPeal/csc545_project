@@ -23,6 +23,15 @@ if ($conn->connect_error) {
 
 
 <body>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <img src="../documents/Images/LAD-shipping.png";>
+
+
+
+    </div>
+</div>
     
     <div class="container">
         <div class="row" style="margin-top: 150px;">

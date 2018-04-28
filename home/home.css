@@ -49,13 +49,27 @@ h1 {
 }
 
 body {
-    background-color: tomato;
+    background-color: darkred;
     background-size: cover;
     border-bottom: hidden;
 
 }
 
+#login_button {
+    position: relative;
+    left: 25px;
+}
 
+
+#signUp {
+    position: relative;
+    left: 25px;
+}
+
+#password_text {
+    position: relative;
+    left: 2px;
+}
 
 
 

@@ -7,3 +7,7 @@ body {
 #orders-container{
     display: none;
 }
+
+h2 {
+    text-align: center;
+}

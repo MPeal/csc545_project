@@ -18,11 +18,9 @@ session_start();
 
 
 <div class="container">
-    <div class="row" style="margin-top: 150px;">
+    <div class="row">
         <div class="col-md-12 text-center">
-            <h3>LAD Shipping</h3>
-
-
+            <img src="../documents/Images/LAD-shipping.png";>
 
         </div>
     </div>
@@ -36,7 +34,7 @@ session_start();
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12" id = password_text>
                         Password:   <input id="login_pword" type='password' name='password'>
                     </div>
                 </div>
