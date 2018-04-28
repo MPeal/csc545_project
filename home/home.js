@@ -23,6 +23,7 @@ function submit(){
             password: pword
         },
         success: function(response){
+            response = JSON.parse(response);
             if(response['isValid'] == false){
                 updateFeedback(response['feedback'], 'red');
             }else{

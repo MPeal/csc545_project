@@ -63,7 +63,7 @@ class MongoHandler
         $docs = array();
         try{
             $collection = $this->getCollection($user);
-            $result = $collection->find()->sort(array('date' => 1));
+            $result = $collection->find()->sort(array('date' => -1));
             foreach($result as $order){
                 $docs[] = $order;
             }
