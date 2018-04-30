@@ -71,9 +71,6 @@ $user = $_SESSION['username'];
                 <input id="checkout-btn" class="btn-success" type="button" value="Check Out">
             </a>
         </div>
-        <div class="col-md-3 col-md-offset-3">
-            <input id="add-items-btn" class="btn-secondary" type="button" value="Add Items">
-        </div>
 
     </div>
     <div class="col-md-2 col-md-offset-6" id="cart-feedback-div">
