@@ -17,6 +17,7 @@ class MongoHandler
         $server = "mongodb://csc545mongo:Ce24-iu-I2app@den1.mongo1.gear.host:27001";
 
         try{
+            //$conn = new MongoClient($server);
             $conn = new MongoClient("den1.mongo1.gear.host:27001", array(
                 "username" => "csc545mongo",
                 "password" => "Ce24-iu-I2ap",
@@ -78,27 +79,27 @@ class MongoHandler
      */
     public function placeOrder($data)
     {
-        /**
-         * find collection for user
-         * if not one, create it
-         * place order object into collection
-         */
         $user = $_SESSION['username'];
         $cart = $data['cart'];
         $cart = json_decode($cart, JSON_UNESCAPED_UNICODE);
-        try{
-            $collection = $this->getCollection($user);
-            $collection->insert($cart);
-        }catch(Exception $e){
-            echo $e;
-        }
 
         //process order on sql-side db
-        $this->sqlHandler->processOrder($cart);
+        $sqlSuccess = $this->sqlHandler->processOrder($cart);
+        if($sqlSuccess){
+            /**
+             * find collection for user
+             * if not one, create it
+             * place order object into collection
+             */
+            try{
+                $collection = $this->getCollection($user);
+                $collection->insert($cart);
+            }catch(Exception $e){
+                echo $e;
+            }
+        }
 
-        return array(
-            'success' => $user
-        );
+        return $sqlSuccess;
     }
 
     public function getOrder($id)

@@ -9,7 +9,6 @@
 #order-bottom-btns-row{
     display: none;
     padding-top: 40px;
-
 }
 
 #items-info-container {
@@ -17,10 +16,11 @@
     left: 40px;
     padding-top: 50px;
     padding-right: 100px;
-
-
 }
 
+#cart-feedback-div{
+    left: -15px;
+}
 
 #category_div{
     padding-top: 20px;
@@ -59,13 +59,10 @@ h2 {
     padding-top: 40px;
 }
 
-
 #checkout-btn {
     position: relative;
     left: 336px;
     color: white;
-
-
 }
 
 #add-items-btn {

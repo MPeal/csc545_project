@@ -64,15 +64,46 @@ class DbHandler
         return $rows;
     }
 
+    public function checkStocks($params){
+        $items = $params['items'];
+        $decision = true;
+        foreach($items as $item){
+            $quantity = (int)$item['quantity'];
+            $id = (int)$item['id'];
+
+            $sql = "SELECT quantity FROM item_count WHERE item_id = ".$id;
+            $result = $this->conn->query($sql);
+            while($row = $result->fetch_assoc()){
+                $stock = (int)$row['quantity'];
+                if($quantity > $stock){
+                    return false;
+                }
+            }
+        }
+        return $decision;
+    }
+
     public function processOrder($order)
     {
         $items = $order['items'];
         foreach($items as $item){
             $id = (int)$item['itemId'];
             $quantity = (int)$item['quantity'];
+
+            //confirm all item stocks are <= inputted quantity
+            $sql = "SELECT quantity FROM item_count WHERE item_id = ".$id;
+            $result = $this->conn->query($sql);
+            while($row = $result->fetch_assoc()){
+                $stock = (int)$row['quantity'];
+                if($quantity > $stock){
+                    return false;
+                }
+            }
+
             $sql ="UPDATE item_count SET quantity = (quantity - ".$quantity.") WHERE item_id = ".$id;
             $this->conn->query($sql);
         }
+        return true;
     }
 }
 

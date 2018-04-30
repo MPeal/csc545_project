@@ -39,8 +39,12 @@ function placeOrder(){
         type: 'POST',
         data: data,
         success: function(response){
-            window.localStorage.removeItem('cart');
-            window.location = "../portal/order_history.php";
+            if(response === true || response === 'true'){
+                window.localStorage.removeItem('cart');
+                window.location = "../portal/order_history.php";
+            }else{
+                alert("One of your quantites is larger than our available stock.  Please enter a valid quantity!");
+            }
         }
     })
 }

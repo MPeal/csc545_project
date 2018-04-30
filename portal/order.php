@@ -14,7 +14,7 @@ $user = $_SESSION['username'];
 <body>
 <div class="row" id="logo_id">
     <div class="col-md-12 text-center">
-        <img src="../documents/Images/lad_shipping_logo.png";>
+        <img src="../documents/Images/LAD-shipping.png";>
 
 
 
@@ -55,7 +55,7 @@ $user = $_SESSION['username'];
         </div>
     </div>
     <div class="row" id="order-total-row">
-        <div class="col-md-2 col-md-offset-9">
+        <div class="col-md-3 col-md-offset-9">
                 <span>
                     Category Subtotal
                 </span>
@@ -63,6 +63,9 @@ $user = $_SESSION['username'];
         </div>
     </div>
     <div class="row" id="order-bottom-btns-row">
+        <div class="col-md-3 col-md-offset-3">
+            <input id="add-items-btn" class="btn-secondary" type="button" value="Add Items">
+        </div>
         <div class="col-md-3">
             <a href="cart.php">
                 <input id="checkout-btn" class="btn-success" type="button" value="Check Out">
@@ -72,6 +75,8 @@ $user = $_SESSION['username'];
             <input id="add-items-btn" class="btn-secondary" type="button" value="Add Items">
         </div>
 
+    </div>
+    <div class="col-md-2 col-md-offset-6" id="cart-feedback-div">
     </div>
 </div>
 </div>
