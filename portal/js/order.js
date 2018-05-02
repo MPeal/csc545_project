@@ -1,14 +1,26 @@
 loadCategories();
 bindEvents();
+if(window.localStorage['cart']){
+    checkCartUser();
+}
 
 var orderTotal = 0;
 var currentCatTotal = 0;
+
+function checkCartUser(){
+    var user = $('#user-id-hide').val();
+    var cart = JSON.parse(window.localStorage['cart']);
+    var cartUser = cart.user;
+    if(user !== cartUser){
+        window.localStorage.removeItem('cart');
+    }
+}
 
 function bindEvents() {
     $('#category-select').on('change', function () {
         getItemsByCategory()
             .done(function () {
-                setInterval(function () {
+                setTimeout(function () {
                     bindItemQuantityKeyupEvent();
                     updateTotal();
                 }, 100);
@@ -164,6 +176,7 @@ function createCart() {
         cartTotal += itemTotal;
     }
     cart.items = items;
+    cart.user = $('#user-id-hide').val();
     cart.total = parseFloat(cartTotal).toFixed(2);
     window.localStorage['cart'] = JSON.stringify(cart);
 }

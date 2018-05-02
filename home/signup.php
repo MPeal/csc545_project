@@ -32,106 +32,107 @@ if ($conn->connect_error) {
 
     </div>
 </div>
-    
-    <div class="container">
-        <div class="row" style="margin-top: 50px;">
-            <div class="col-md-12 text-center">
-                <h1>Sign Up</h1>
+
+<div class="container">
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-12 text-center">
+            <h1>Sign Up</h1>
+        </div>
+    </div>
+    <div id="login_form_wrapper">
+        <div class="row text-center">
+            <form action="regValidation.php" method="POST">
+                <div class="row">
+                    <div class="col-xs-1">
+                        Name:
+                    </div>
+                    <div class="col-xs-11">
+                        <input id="registerName" type='text' name='fullName'>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-xs-1">
+                        Street:
+                    </div>
+                    <div class="col-xs-11">
+                        <input id="registerStreet" type='text' name='street'>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-xs-1">
+                        City:
+                    </div>
+                    <div class="col-xs-11">
+                        <input id="registerCity" type='text' name='city'>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-xs-1">
+                        State:
+                    </div>
+                    <div class="col-xs-11">
+                        <input id="registerState" type='text' name='state'>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-xs-1">
+                        Zip:
+                    </div>
+                    <div class="col-xs-11">
+                        <input id="registerZip" type='number' name='zip'>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-xs-1">
+                        Username:
+                    </div>
+                    <div class="col-xs-11">
+                        <input id="login_username" type='text' name='username'>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-xs-1">
+                        Password:
+                    </div>
+                    <div class="col-xs-11">
+                        <input id="login_pword" type='password' name='password'>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-1">
+                        Confirm Password:
+                    </div>
+                    <div class="col-xs-11">
+                        <input id="login_pword2" type='password' name='password_confirm'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="margin-top: 10px">
+                        <input id="login_button" type="button" class="btn btn-default" value="Sign Up" name='submit'>
+                    </div>
+                </div>
+            </form>
+            <div class="row" id="feedback_display">
             </div>
         </div>
-        <div id="login_form_wrapper">
-            <div class="row text-center">
-                <form action="regValidation.php" method="POST">
-                    <div class="row">
-                        <div class="col-xs-1">
-                            Name:
-						</div>
-						<div class="col-xs-11">
-                            <input id="registerName" type='text' name='fullName'>
-                        </div>
-                    </div>
+    </div>
 
-                    <br>
-                    <div class="row">
-                        <div class="col-xs-1">
-                            Street:
-                        </div>
-                        <div class="col-xs-11">
-                            <input id="registerStreet" type='text' name='street'>
-                        </div>
-                    </div>
-
-                    <br>
-                    <div class="row">
-                        <div class="col-xs-1">
-                            City:
-                        </div>
-                        <div class="col-xs-11">
-                            <input id="registerCity" type='text' name='city'>
-                        </div>
-                    </div>
-
-                    <br>
-                    <div class="row">
-                        <div class="col-xs-1">
-                            State:
-                        </div>
-                        <div class="col-xs-11">
-                            <input id="registerState" type='text' name='state'>
-                        </div>
-                    </div>
-
-                    <br>
-                    <div class="row">
-                        <div class="col-xs-1">
-                            Zip:
-                        </div>
-                        <div class="col-xs-11">
-                            <input id="registerZip" type='number' name='zip'>
-                        </div>
-                    </div>
-
-                    <br>
-                    <div class="row">
-                        <div class="col-xs-1">
-                            Username:
-                        </div>
-                        <div class="col-xs-11">
-                            <input id="login_username" type='text' name='username'>
-                        </div>
-                    </div>
-
-                    <br>
-                    <div class="row">
-                        <div class="col-xs-1">
-                            Password: 
-						</div>
-						<div class="col-xs-11">
-                            <input id="login_pword" type='password' name='password'>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-xs-1">
-                            Confirm Password:
-						</div>
-						<div class="col-xs-11">
-                            <input id="login_pword" type='password' name='password_confirm'>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12" style="margin-top: 10px">
-                            <input id="login_button" type="button" class="btn btn-default" value="Sign Up" name='submit'> <!--  type='submit' -->
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        
 </body>
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="signup.js"></script>
-
